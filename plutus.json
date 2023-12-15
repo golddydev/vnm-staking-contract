@@ -1,0 +1,98 @@
+{
+  "preamble": {
+    "title": "golddydev/vnm-staking-contract",
+    "description": "Aiken contracts for project 'golddydev/vnm-staking-contract'",
+    "version": "0.0.0",
+    "plutusVersion": "v2",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.0.21-alpha+4b04517"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "vnm_staking.unstake",
+      "datum": {
+        "title": "datum",
+        "schema": {
+          "$ref": "#/definitions/staking~1types~1StakingDatum"
+        }
+      },
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/staking~1types~1StakingRedeemer"
+        }
+      },
+      "compiledCode": "59010601000032323232323232322223253330073232323232533300c3370e90010008991919198008008011129998098008a501323253330123371e00400c29444cc010010004c058008dd7180a0009bac301130123012301230123012301230123012300b005375c6020602260140122940c028004c038004c038008c030004c014008526136563253330073370e900000089919191919192999808180900109924c64a66601c66e1d200000113232323253330153017002149858dd7180a800980a8011bae3013001300c00216300c0011630100013010002375c601c002601c0046eb4c030004c01401058c01400c8c014dd5000918019baa0015734aae7555cf2ab9f5742ae89",
+      "hash": "715cd879b4867d5e8099b5958ddc17a67b9222e3ffae1b203be71d26"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "staking/types/StakedTokenInformation": {
+      "title": "StakedTokenInformation",
+      "anyOf": [
+        {
+          "title": "StakedTokenInformation",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "policy_id",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "asset_name",
+              "$ref": "#/definitions/ByteArray"
+            }
+          ]
+        }
+      ]
+    },
+    "staking/types/StakingDatum": {
+      "title": "StakingDatum",
+      "anyOf": [
+        {
+          "title": "StakingDatum",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "staking_period",
+              "description": "POSIX time in second for staking period, e.g. 1 month, 3 momnths, ...",
+              "$ref": "#/definitions/Int"
+            },
+            {
+              "title": "staker",
+              "description": "Staker credential: Staker's public key hash",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "staked_token_info",
+              "description": "staked asset information (policy id, asset name)",
+              "$ref": "#/definitions/staking~1types~1StakedTokenInformation"
+            }
+          ]
+        }
+      ]
+    },
+    "staking/types/StakingRedeemer": {
+      "title": "StakingRedeemer",
+      "anyOf": [
+        {
+          "title": "SpendRedeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        }
+      ]
+    }
+  }
+}

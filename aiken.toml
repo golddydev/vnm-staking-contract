@@ -1,0 +1,14 @@
+name = "golddydev/vnm-staking-contract"
+version = "0.0.0"
+license = "Apache-2.0"
+description = "Aiken contracts for project 'golddydev/vnm-staking-contract'"
+
+[repository]
+user = "golddydev"
+project = "vnm-staking-contract"
+platform = "github"
+
+[[dependencies]]
+name = "aiken-lang/stdlib"
+version = "1.7.0"
+source = "github"
